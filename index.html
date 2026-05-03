@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✈️ Royal Wings | Bengaluru to England Luxury Flights</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0f1e;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(41, 70, 140, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.3) 0%, transparent 50%);
+            z-index: -2;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000"><path fill="rgba(255,255,255,0.02)" d="M0,0 L2000,0 L2000,2000 L0,2000 Z M100,100 L1900,100 L1900,1900 L100,1900 Z"/><circle cx="500" cy="500" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="1200" cy="800" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="1600" cy="300" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(102, 126, 234, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(102, 126, 234, 0.6); }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+            backdrop-filter: blur(10px);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #a78bfa;
+            margin-bottom: 20px;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #a78bfa 50%, #c084fc 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #a78bfa;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 5px;
+        }
+
+        /* Main Card */
+        .main-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            margin-top: 40px;
+            animation: slideIn 0.8s ease-out 0.2s backwards;
+        }
+
+        /* Route Visualization */
+        .route-visual {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding: 40px;
+            position: relative;
+        }
+
+        .route-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .city {
+            flex: 1;
+            text-align: center;
+        }
+
+        .city-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .city-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .city-code {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .flight-path {
+            flex: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .path-line {
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+            flex: 1;
+            position: relative;
+        }
+
+        .plane-icon {
+            font-size: 1.5rem;
+            color: #a78bfa;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        .duration-badge {
+            background: rgba(102, 126, 234, 0.2);
+            padding: 8px 15px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: #a78bfa;
+            font-weight: 600;
+        }
+
+        /* Booking Form */
+        .booking-form {
+            padding: 40px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a78bfa;
+            font-size: 1.1rem;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #a78bfa;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .input-group label {
+            position: absolute;
+            left: 45px;
+            top: -10px;
+            background: #0a0f1e;
+            padding: 0 8px;
+            font-size: 0.75rem;
+            color: #a78bfa;
+            font-weight: 600;
+        }
+
+        /* Flight Cards */
+        .flights-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 0 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .flights-header h3 {
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .flight-count {
+            background: rgba(102, 126, 234, 0.2);
+            padding: 5px 12px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: #a78bfa;
+        }
+
+        .flights-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .flights-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .flights-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .flights-container::-webkit-scrollbar-thumb {
+            background: #a78bfa;
+            border-radius: 10px;
+        }
+
+        .flight-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transition: left 0.5s;
+        }
+
+        .flight-card:hover::before {
+            left: 100%;
+        }
+
+        .flight-card:hover {
+            transform: translateX(10px);
+            border-color: rgba(102, 126, 234, 0.5);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.05));
+        }
+
+        .flight-card.selected {
+            border-color: #a78bfa;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.1));
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .flight-card-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .airline-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            min-width: 180px;
+        }
+
+        .airline-logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .airline-name {
+            font-weight: 700;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .flight-stops {
+            font-size: 0.7rem;
+            color: #94a8b8;
+            margin-top: 4px;
+        }
+
+        .flight-time-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .time {
+            text-align: center;
+        }
+
+        .time-value {
+            font-weight: 700;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .time-label {
+            font-size: 0.7rem;
+            color: #94a3b8;
+        }
+
+        .flight-duration {
+            font-size: 0.8rem;
+            color: #a78bfa;
+        }
+
+        .price-info {
+            text-align: right;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #a78bfa;
+        }
+
+        .price-label {
+            font-size: 0.7rem;
+            color: #94a3b8;
+        }
+
+        /* Book Button */
+        .book-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 20px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .book-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .book-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Confirmation Modal */
+        .confirmation-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1f2e, #0f1420);
+            border-radius: 30px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .modal-content h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .booking-details {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .detail-label {
+            color: #94a3b8;
+        }
+
+        .detail-value {
+            color: white;
+            font-weight: 600;
+        }
+
+        .close-modal {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 15px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .flight-card-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .price-info {
+                text-align: center;
+            }
+            
+            .route-line {
+                flex-direction: column;
+            }
+            
+            .flight-path {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="badge">
+                <i class="fas fa-crown"></i> Premium Air Travel
+            </div>
+            <h1>Fly from Bengaluru to<br>England in Style</h1>
+            <p>Experience luxury, comfort, and world-class service at unbeatable prices</p>
+            
+            <div class="stats-bar">
+                <div class="stat">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Daily Flights</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Airlines</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4.9</span>
+                    <span class="stat-label">Rating ★</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-card">
+            <div class="route-visual">
+                <div class="route-line">
+                    <div class="city">
+                        <div class="city-icon">
+                            <i class="fas fa-plane-departure"></i>
+                        </div>
+                        <div class="city-name">Bengaluru</div>
+                        <div class="city-code">Kempegowda Int'l Airport (BLR)</div>
+                    </div>
+                    <div class="flight-path">
+                        <div class="path-line"></div>
+                        <div class="plane-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="path-line"></div>
+                    </div>
+                    <div class="city">
+                        <div class="city-icon">
+                            <i class="fas fa-flag-checkered"></i>
+                        </div>
+                        <div class="city-name">England</div>
+                        <div class="city-code">London Heathrow (LHR)</div>
+                    </div>
+                </div>
+                <div class="duration-badge" style="display: inline-block; margin-top: 20px;">
+                    <i class="far fa-clock"></i> Avg. Flight Time: 10h 30m
+                </div>
+            </div>
+
+            <div class="booking-form">
+                <div class="form-grid">
+                    <div class="input-group">
+                        <i class="fas fa-calendar-alt"></i>
+                        <label>Departure Date</label>
+                        <input type="date" id="departureDate">
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-calendar-check"></i>
+                        <label>Return Date (Optional)</label>
+                        <input type="date" id="returnDate">
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-users"></i>
+                        <label>Passengers</label>
+                        <select id="passengers">
+                            <option value="1">1 Passenger</option>
+                            <option value="2">2 Passengers</option>
+                            <option value="3">3 Passengers</option>
+                            <option value="4">4 Passengers</option>
+                            <option value="5">5 Passengers</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-chair"></i>
+                        <label>Class</label>
+                        <select id="class">
+                            <option value="economy">Economy Class</option>
+                            <option value="business">Business Class</option>
+                            <option value="first">First Class</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="flights-header">
+                    <h3><i class="fas fa-ticket-alt"></i> Available Flights</h3>
+                    <div class="flight-count" id="flightCount">5 flights found</div>
+                </div>
+                <div class="flights-container" id="flightsContainer"></div>
+
+                <button class="book-btn" onclick="bookTicket()">
+                    <i class="fas fa-ticket-alt"></i> Book Your Flight Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="confirmation-modal">
+        <div class="modal-content">
+            <div class="modal-icon">✈️</div>
+            <h2>Booking Confirmed! 🎉</h2>
+            <div class="booking-details" id="bookingDetails"></div>
+            <button class="close-modal" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        const flights = [
+            {
+                id: 1,
+                airline: "British Airways",
+                logo: "🇬🇧",
+                departure: "03:30",
+                departurePeriod: "AM",
+                arrival: "08:45",
+                arrivalPeriod: "AM",
+                duration: "10h 15m",
+                price: 45000,
+                stops: "Direct",
+                rating: 4.8
+            },
+            {
+                id: 2,
+                airline: "Virgin Atlantic",
+                logo: "✈️",
+                departure: "11:45",
+                departurePeriod: "AM",
+                arrival: "05:00",
+                arrivalPeriod: "PM",
+                duration: "10h 15m",
+                price: 42000,
+                stops: "Direct",
+                rating: 4.7
+            },
+            {
+                id: 3,
+                airline: "Emirates",
+                logo: "🇦🇪",
+                departure: "09:15",
+                departurePeriod: "PM",
+                arrival: "05:30",
+                arrivalPeriod: "AM",
+                duration: "12h 45m",
+                price: 38000,
+                stops: "1 Stop (Dubai)",
+                rating: 4.9
+            },
+            {
+                id: 4,
+                airline: "Qatar Airways",
+                logo: "🇶🇦",
+                departure: "04:20",
+                departurePeriod: "PM",
+                arrival: "12:00",
+                arrivalPeriod: "AM",
+                duration: "11h 40m",
+                price: 39500,
+                stops: "1 Stop (Doha)",
+                rating: 4.9
+            },
+            {
+                id: 5,
+                airline: "Air India",
+                logo: "🇮🇳",
+                departure: "07:30",
+                departurePeriod: "AM",
+                arrival: "02:15",
+                arrivalPeriod: "PM",
+                duration: "11h 15m",
+                price: 36000,
+                stops: "Direct",
+                rating: 4.5
+            }
+        ];
+
+        let selectedFlight = null;
+
+        function displayFlights() {
+            const container = document.getElementById('flightsContainer');
+            container.innerHTML = flights.map(flight => `
+                <div class="flight-card" onclick="selectFlight(${flight.id})" id="flight-${flight.id}">
+                    <div class="flight-card-content">
+                        <div class="airline-info">
+                            <div class="airline-logo">${flight.logo}</div>
+                            <div>
+                                <div class="airline-name">${flight.airline}</div>
+                                <div class="flight-stops">
+                                    <i class="fas fa-map-marker-alt"></i> ${flight.stops}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flight-time-info">
+                            <div class="time">
+                                <div class="time-value">${flight.departure} ${flight.departurePeriod}</div>
+                                <div class="time-label">Departure</div>
+                            </div>
+                            <div class="flight-duration">
+                                <i class="fas fa-arrow-right"></i> ${flight.duration}
+                            </div>
+                            <div class="time">
+                                <div class="time-value">${flight.arrival} ${flight.arrivalPeriod}</div>
+                                <div class="time-label">Arrival</div>
+                            </div>
+                        </div>
+                        <div class="price-info">
+                            <div class="price">₹${flight.price.toLocaleString()}</div>
+                            <div class="price-label">per person</div>
+                            <div style="font-size: 0.7rem; color: #fbbf24;">★ ${flight.rating}</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            document.getElementById('flightCount').innerHTML = `${flights.length} flights found`;
+        }
+
+        function selectFlight(flightId) {
+            selectedFlight = flights.find(f => f.id === flightId);
+            document.querySelectorAll('.flight-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            document.getElementById(`flight-${flightId}`).classList.add('selected');
+        }
+
+        function bookTicket() {
+            const departureDate = document.getElementById('departureDate').value;
+            const returnDate = document.getElementById('returnDate').value;
+            const passengers = parseInt(document.getElementById('passengers').value);
+            const passengerClass = document.getElementById('class').value;
+            
+            if (!departureDate) {
+                alert('✨ Please select your departure date');
+                return;
+            }
+            
+            if (!selectedFlight) {
+                alert('✨ Please select a flight to continue');
+                return;
+            }
+            
+            let totalPrice = selectedFlight.price * passengers;
+            let classMultiplier = 1;
+            let className = '';
+            
+            if (passengerClass === 'business') {
+                totalPrice *= 2.5;
+                classMultiplier = 2.5;
+                className = 'Business Class';
+            } else if (passengerClass === 'first') {
+                totalPrice *= 4;
+                classMultiplier = 4;
+                className = 'First Class';
+            } else {
+                className = 'Economy Class';
+            }
+            
+            const isRoundTrip = returnDate !== '';
+            if (isRoundTrip) totalPrice *= 2;
+            
+            const bookingId = 'BLR' + Math.random().toString(36).substr(2, 8).toUpperCase();
+            
+            const bookingDetails = {
+                bookingId: bookingId,
+                flight: selectedFlight.airline,
+                flightNumber: `${selectedFlight.airline.substring(0, 2).toUpperCase()}${Math.floor(Math.random() * 900) + 100}`,
+                departureDate: departureDate,
+                returnDate: returnDate || 'One Way Trip',
+                passengers: passengers,
+                class: className,
+                totalPrice: totalPrice,
+                departureTime: `${selectedFlight.departure} ${selectedFlight.departurePeriod}`,
+                arrivalTime: `${selectedFlight.arrival} ${selectedFlight.arrivalPeriod}`,
+                duration: selectedFlight.duration,
+                stops: selectedFlight.stops
+            };
+            
+            const bookings = JSON.parse(localStorage.getItem('bookings') || '[]');
+            bookings.push(bookingDetails);
+            localStorage.setItem('bookings', JSON.stringify(bookings));
+            
+            const modal = document.getElementById('confirmationModal');
+            const detailsDiv = document.getElementById('bookingDetails');
+            detailsDiv.innerHTML = `
+                <div class="detail-row">
+                    <span class="detail-label">Booking ID:</span>
+                    <span class="detail-value">${bookingDetails.bookingId}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Flight:</span>
+                    <span class="detail-value">${bookingDetails.flight} (${bookingDetails.flightNumber})</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Route:</span>
+                    <span class="detail-value">BLR → LHR</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Departure:</span>
+                    <span class="detail-value">${bookingDetails.departureDate} at ${bookingDetails.departureTime}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Arrival:</span>
+                    <span class="detail-value">${bookingDetails.arrivalTime} (${bookingDetails.duration})</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Stops:</span>
+                    <span class="detail-value">${bookingDetails.stops}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Passengers:</span>
+                    <span class="detail-value">${bookingDetails.passengers}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Class:</span>
+                    <span class="detail-value">${bookingDetails.class}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Total Price:</span>
+                    <span class="detail-value">₹${bookingDetails.totalPrice.toLocaleString()}</span>
+                </div>
+            `;
+            
+            modal.style.display = 'flex';
+            console.log('Booking Confirmed:', bookingDetails);
+        }
+        
+        function closeModal() {
+            document.getElementById('confirmationModal').style.display = 'none';
+        }
+        
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('departureDate').min = today;
+        document.getElementById('returnDate').min = today;
+        document.getElementById('departureDate').value = today;
+        
+        displayFlights();
+    </script>
+</body>
+</html>
